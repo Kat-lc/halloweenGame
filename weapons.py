@@ -2,23 +2,15 @@ from random import randint, uniform
 
 class Weapon():
     def __init__(self):
-        self.createWeapon()
         self.name = "Weapon"
-
-    def createWeapon(self):
-        print("Created a weapon")
-        choice = randint(1, 4)
-        switcher = {
-            1: HersheyKiss(),
-            2: SourStraw(),
-            3: ChocolateBar(),
-            4: NerdBomb()
-        }
-        return switcher.get(choice, HersheyKiss())
+        self.attackMod = 1
+        self.ammo = 1
 
     def getWeapon(self):
         return self.name
 
+    def getAmmo(self):
+        return self.ammo
 
 class HersheyKiss(Weapon):
     def __init__(self):
@@ -32,6 +24,12 @@ class HersheyKiss(Weapon):
     def getWeapon(self):
         return self.name
 
+    def getAmmo(self):
+        return "unlimited"
+
+    def getAttack(self):
+        return self.attackMod
+
 class SourStraw(Weapon):
     def __init__(self):
         self.name = "SourStraw"
@@ -42,6 +40,12 @@ class SourStraw(Weapon):
 
     def getWeapon(self):
         return self.name
+
+    def getAmmo(self):
+        return self.ammo
+
+    def getAttack(self):
+        return self.attackMod
 
     def use(self):
         print("Reducing ammo")
@@ -58,6 +62,12 @@ class ChocolateBar(Weapon):
     def getWeapon(self):
         return self.name
 
+    def getAmmo(self):
+        return self.ammo
+
+    def getAttack(self):
+        return self.attackMod
+
     def use(self):
         print("Reducing ammo")
         print("Check if out of ammo")
@@ -72,6 +82,12 @@ class NerdBomb(Weapon):
 
     def getWeapon(self):
         return self.name
+
+    def getAmmo(self):
+        return self.ammo
+
+    def getAttack(self):
+        return self.attackMod
 
     def use(self):
         print("Reducing ammo")
